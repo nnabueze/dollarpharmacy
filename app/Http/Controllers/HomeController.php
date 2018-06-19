@@ -95,6 +95,11 @@ class HomeController extends Controller
         return view('blog_details', compact('post'));
     }
 
+    public function bakery()
+    {
+        return view('bakery');
+    }
+
 
 
 }

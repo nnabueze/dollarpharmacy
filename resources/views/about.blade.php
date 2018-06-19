@@ -71,9 +71,24 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="about-heading">
+                <div class="about-heading text-center">
                     <h3>Our Key Staff</h3>
                     <p>Our team of expert will work side by side to offer the best solution.</p>
+                    <p>
+                     <ul>
+                        <li>Pharm Audu Garba Innocent</li>
+                        <li>Pharm Abdulrasheed Ibrahim </li>
+                        <li>Pharm Uzowuaka Christian Chidi  </li>
+                        <li>Pharm Peter Onuarah </li>
+                        <li>Mr Igono Noah (SCHEW) </li>
+                        <li>Mr Jerome Anjishi (SCHEW) </li>
+                        <li>Mr Balogun Lucky (Accountant) </li>
+                        <li>Bar Rebeca Otoupele(Secretary) </li>
+                        <li>Mr Onah Andrew Inalegwu(IT) </li>
+                        <li>Mr Allan Nwali(Operations Manager) </li>
+
+                    </ul>
+                    </p>
                 </div>
                 {{--@foreach($staffs as $staff)--}}
                 {{--<div class="col-xs-12 col-sm-6 col-md-4">--}}

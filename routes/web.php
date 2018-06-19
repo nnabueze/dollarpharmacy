@@ -19,6 +19,7 @@ Route::get('oldlogin', function () {
 
 Route::get('about', 'HomeController@about')->name('about');
 Route::get('news', 'HomeController@blog')->name('blog');
+Route::get('/bakery','HomeController@bakery')->name('bakery');
 
 Route::get('rest', function () {
 

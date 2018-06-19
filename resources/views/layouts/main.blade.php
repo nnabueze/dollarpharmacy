@@ -62,6 +62,7 @@
 <script src="{{URL::to('assets/js/main.js')}}"></script>
 
 <script src="{{URL::to('js/noty.js')}}" type="text/javascript"></script>
+@yield('script')
 
 <script>
     @if(Session::has('success'))

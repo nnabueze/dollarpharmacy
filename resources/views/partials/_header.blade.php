@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-3 col-lg-3">
                     <div class="h2-logo">
-                        <a href="{{route('index')}}"><img src="{{URL::to('assets/img/logos/logo.jpg')}}" alt="" /></a>
+                        <a href="{{route('index')}}"><img src="{{URL::to('assets/img/logos/logo.png')}}" alt="" height="150" width="250" /></a>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">

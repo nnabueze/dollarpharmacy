@@ -22,9 +22,9 @@
 
                             <li><a href="{{route('blog')}}">Blog & Media</a></li>
 
-                            <li><a href="#">Restaurant & Bakery</a></li>
+                            <li><a href="{{route('bakery')}}">Restaurant & Bakery</a></li>
 
-                            <li><a href="#">CAREERS & RECRUITMENT</a></li>
+                            <!-- <li><a href="#">CAREERS & RECRUITMENT</a></li> -->
 
 
                             <li><a href="#">Customer Care</a>

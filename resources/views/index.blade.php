@@ -35,7 +35,7 @@
                                     @foreach($category->products()->inRandomOrder()->take(3)->get() as $product)
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <div class="t-all-product-info">
-                                            <div class="p-sign">{{$product->subCategories->name}}</div>
+                                            <div class="p-sign"></div>
                                             <div class="t-product-img">
                                                 <a href="{{route('product.single', $product->slug)}}">
                                                     <img src="{{URL::to($product->thumb1)}}" alt="" />
