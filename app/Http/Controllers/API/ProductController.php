@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Product;
 use App\Http\Resources\Product as ProductResource;
+use App\Http\Resources\Products as ProductsResource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -92,5 +93,12 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function allProduct($id)
+    {
+       $product = Product::where('category_id',$id)->get();
+
+       return new ProductsResource($product);
     }
 }

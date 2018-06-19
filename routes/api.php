@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\Http\Resources\Category as CategoryResource;
+use App\Http\Resources\Categories as CategoriesResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +26,11 @@ Route::get('products', 'API\ProductController@index');
 
 // List single product
 Route::get('product/{id}', 'API\ProductController@show');
+
+//getting list of product under 
+Route::get('category/{id}', 'API\ProductController@allProduct');
+//getting list of category
+Route::get('category',  function () {
+    return new CategoriesResource(Category::all());
+});
 
