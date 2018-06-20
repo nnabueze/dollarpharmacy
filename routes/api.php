@@ -34,3 +34,7 @@ Route::get('category',  function () {
     return new CategoriesResource(Category::all());
 });
 
+Route::group(['middleware' => ['api']], function () {
+    Route::post('auth/register', 'Auth\ApiRegisterController@register');
+});
+
