@@ -116,7 +116,7 @@
                             <input type="checkbox" value="remember-me">
                             Remember me
                         </label>
-                        <a href="#" class="pull-right need-help">Create an account </a><span class="clearfix"></span>
+                        <a href="/register" class="pull-right need-help">Create an account </a><span class="clearfix"></span>
                     </form>
                 </div>
             </div>
