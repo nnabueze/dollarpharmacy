@@ -9,16 +9,19 @@
                 <div class="col-sm-8 col-md-9 col-lg-9">
                     <div class="right-menus">
                         <ul>
-                            <li><a href="#"><img alt="" src="assets/img/lng/english.png"> English <i class="fa fa-angle-down"></i> </a>
+                            @if (Auth::check())
 
+                            <li><a href="#"><span> <i class="fa fa-user"></i></span>
+                            Welcome {{ucfirst(Auth::User()->name)}} </a>
                             </li>
-                            <li><a href="#">NGN <i class="fa fa-angle-down"></i></a>
-
+                            <li><a href="/logout"><span> <i class="fa fa-sign-out"></i></span> Logout  </a>
                             </li>
-                            <li><a href="/login"><span> <i class="fa fa-unlock-alt"></i></span> Login  </a>
+                            @else
+                            <li><a href="/login"><span> <i class="fa fa-sign-in"></i></span> Login  </a>
                             </li>
                             <li><a href="/register"><span><i class="fa fa-key"></i></span>  Register</a></li>
                             <li><a href="#"><span> <i class="fa fa-heart"></i> </span>Wishlist</a></li>
+                            @endif
                         </ul>
 
                     </div>

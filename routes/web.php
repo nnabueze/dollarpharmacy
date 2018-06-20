@@ -17,6 +17,8 @@ Route::get('oldlogin', function () {
     return view('auth.login2');
 });
 
+Route::get('logout', 'HomeController@logout');
+
 Route::get('about', 'HomeController@about')->name('about');
 Route::get('news', 'HomeController@blog')->name('blog');
 Route::get('/bakery','HomeController@bakery')->name('bakery');

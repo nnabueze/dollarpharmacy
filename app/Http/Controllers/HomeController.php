@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
+use Auth;
 use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
@@ -98,6 +99,11 @@ class HomeController extends Controller
     public function bakery()
     {
         return view('bakery');
+    }
+
+    public function logout(Request $request) {
+      Auth::logout();
+      return redirect('/');
     }
 
 
