@@ -82,7 +82,7 @@
                             <span class="sp-price main-price">₦{{number_format($product->price)}} {{$product->unit ? '/' . $product->unit : ''}}</span>
                         </div>
                         <div class="singl-share">
-                            <span>Share:</span> <a href="#"><img src="{{URL::to('assets/img/single-share.png')}}" alt=""></a>
+                            <span>Share:</span> <a href="#"><i class="fa fa-facebook"></i></a>&nbsp; &nbsp;<a href="#"><i class="fa fa-twitter"></i></a>
                         </div>
                         <div class="product-short-description">
                             <h4>Quick Overview</h4>
@@ -165,7 +165,7 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#description">Full Description</a></li>
                                 <li><a data-toggle="tab" href="#review">Add Your Review</a></li>
-                                <li><a data-toggle="tab" href="#infomation">Product Infomation</a></li>
+                                <li><a data-toggle="tab" href="#infomation">Product Information</a></li>
                             </ul>
                         </div>
                         <div class="revew-content-area">

@@ -15,15 +15,15 @@ class Product extends Resource
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
+        return parent::toArray($request);
 
-       return [
+/*       return [
            'id' => $this->id,
            'title' => $this->title,
            'description' => $this->description,
            'price' => $this->price,
            'description' => $this->description,
            'image1' => $this->image1,
-       ];
+       ];*/
     }
 }

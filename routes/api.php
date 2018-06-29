@@ -34,7 +34,12 @@ Route::get('category',  function () {
     return new CategoriesResource(Category::all());
 });
 
+//authenticating user
+Route::post('auth/login', 'Auth\ApiLoginController@login');
+
 Route::group(['middleware' => ['api']], function () {
     Route::post('auth/register', 'Auth\ApiRegisterController@register');
 });
+
+Route::post("product/order","API\ProductController@order");
 

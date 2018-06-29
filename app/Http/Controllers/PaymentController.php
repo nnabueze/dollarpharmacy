@@ -150,7 +150,7 @@ class PaymentController extends Controller
             Session::flash('success', 'Order Successful!');
 
         }else{
-            $order->status = 'Unpaid: Low Wallet Balance';
+            $order->status = 'Unpaid';
             Session::flash('fail', 'Order Failed! Wallet Balance Low');
         }
 

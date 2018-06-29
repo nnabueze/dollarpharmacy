@@ -18,14 +18,14 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="category">Total Orders</p>
-                                    <h3 class="title">12
+                                    <h3 class="title">{{$orderNumber}}
 
                                     </h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
                                         <i class="material-icons">local_grocery_store</i>
-                                        <a href="#pablo">view all orders</a>
+                                        <a href="/dashboard/orders">view all orders</a>
                                     </div>
                                 </div>
                             </div>
@@ -54,12 +54,12 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="category">Prescriptions</p>
-                                    <h3 class="title">105</h3>
+                                    <h3 class="title">{{count(Auth::user()->prescriptions()->get())}}</h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
                                         <i class="material-icons">local_hospital</i>
-                                        <a href="#pablo">view all prescriptions</a>
+                                        <a href="/dashboard/prescription">view all prescriptions</a>
                                     </div>
                                 </div>
                             </div>
@@ -71,12 +71,12 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="category">Pending Orders</p>
-                                    <h3 class="title">4</h3>
+                                    <h3 class="title">{{count(Auth::user()->orders()->where('status','Unpaid')->get())}}</h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
                                         <i class="material-icons">store</i>
-                                        <a href="#pablo">view all pending order</a>
+                                        <a href="/dashboard/orders">view all pending order</a>
                                     </div>
                                 </div>
                             </div>

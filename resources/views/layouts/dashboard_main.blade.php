@@ -11,7 +11,7 @@
     <!-- Mobile specific metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('assets/img/fav_icon.ico')}}">
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon-32x32.png">
     <!--All Fonts  Here -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
@@ -115,7 +115,7 @@
                     </a>
                 </li>
                 <li class="{{ Request::is('dashboard/orders') || Request::is('dashboard/order-details*') ? 'active' : '' }}">
-                    <a href="">
+                    <a href="/dashboard/orders">
                         <i class="material-icons">shopping_basket</i>
                         <p>My Orders</p>
                     </a>
@@ -162,7 +162,7 @@
                                 <p class="hidden-lg hidden-md">Dashboard</p>
                             </a>
                         </li>
-                        <li class="dropdown">
+<!--                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="material-icons">notifications</i>
                                 <span class="notification">5</span>
@@ -185,7 +185,7 @@
                                     <a href="#">Another One</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="material-icons">person</i>

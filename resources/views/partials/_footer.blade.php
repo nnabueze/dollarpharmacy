@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-4">
                 <div class="footer-about">
-                    <img src="{{URL::to('assets/img/logos/mainlogo.jpg')}}" alt="" />
-                    <p>The Company Was Registered In August 1994 And Started Operation In October Same Year. It Was Established By Pharm Audu Garba Innocent, After Graduating From Pharmacy School With Little Entrepreneurial Experience And Finance.</p>
+                    <img src="{{URL::to('assets/img/logos/footer.png')}}" alt="" height="110" width="220" /><br /><br />
+                    
                     <ul>
                         <li><a href="#"><i class="fa fa-home"></i> Abuja </a></li>
                         <li><a href="#"><i class="fa fa-phone"></i> +2380 ... ... </a></li>
@@ -39,10 +39,6 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>

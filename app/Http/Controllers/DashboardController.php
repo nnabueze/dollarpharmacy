@@ -25,9 +25,10 @@ class DashboardController extends Controller
         $wallet_transactions = $wallet->walletTransaction()->take(4)->get();
 
         $orders = Auth::user()->orders()->latest()->take(4)->get();
+        $orderNumber = count(Auth::user()->orders()->get());
+        //dd($orderNumber);
 
-
-        return view('dashboard.index', compact('wallet_transactions', 'orders'));
+        return view('dashboard.index', compact('wallet_transactions', 'orders','orderNumber'));
     }
 
     /**
@@ -134,5 +135,12 @@ class DashboardController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function order(){
+        $order = Auth::user()->orders()->get();
+        //dd($order);
+
+        return view('dashboard.order',compact('order'));
     }
 }

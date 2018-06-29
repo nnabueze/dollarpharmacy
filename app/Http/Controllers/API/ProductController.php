@@ -7,6 +7,9 @@ use App\Http\Resources\Product as ProductResource;
 use App\Http\Resources\Products as ProductsResource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Validator;
+use App\Order;
+use App\User;
 
 class ProductController extends Controller
 {
@@ -100,5 +103,46 @@ class ProductController extends Controller
        $product = Product::where('category_id',$id)->get();
 
        return new ProductsResource($product);
+    }
+
+    public function order(Request $request)
+    {
+        //echo "string";die;
+        
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'phone' =>'required',
+            'address' =>'required',
+            'totalAmount' =>'required',
+            'userId' =>'required',
+            'userId' =>'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response([
+                'error'=>$validator->messages(),
+            ], 400)->header('Content-Type', 'application/json');
+        }
+
+        $user = User::find($request->userId);
+
+        $order = new Order();
+
+        $order->name = $request->name;
+        $order->phone = $request->phone;
+        $order->email = $request->email;
+        $order->address = $request->address;
+        $order->amount = $request->totalAmount;
+        $order->payment_type = 'card';
+        $order->reference = str_random(5).str_random(3).str_random(2).str_random(2);
+        $order->cart = serialize($request->product);
+         $order->status = 'Paid';
+         $order->pickup_date = $request->pickUpDate;
+
+        $user->orders()->save($order);
+
+        return response([ 'order' => $order,
+                        'message'=>"Sucessful"
+                    ], 200)->header('Content-Type', 'application/json'); 
     }
 }

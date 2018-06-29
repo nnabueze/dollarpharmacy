@@ -1,18 +1,18 @@
 <header>
     <!-- header top area start -->
-    <div class="header_top_area">
+    <div class="header_top_area" >
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-md-3 col-lg-3">
+                <div class="col-sm-6 col-md-4 col-lg-3">
                     <p> <i class="fa fa-phone"></i> hotline: 01922262289</p>
                 </div>
-                <div class="col-sm-8 col-md-9 col-lg-9">
+                <div class="col-sm-6 col-md-8 col-lg-9">
                     <div class="right-menus">
                         <ul>
                             @if (Auth::check())
 
                             <li><a href="#"><span> <i class="fa fa-user"></i></span>
-                            Welcome {{ucfirst(Auth::User()->name)}} </a>
+                                Welcome {{ucfirst(Auth::User()->name)}} </a>
                             </li>
                             <li><a href="/logout"><span> <i class="fa fa-sign-out"></i></span> Logout  </a>
                             </li>
@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-3 col-lg-3">
                     <div class="h2-logo">
-                        <a href="{{route('index')}}"><img src="{{URL::to('assets/img/logos/logo.png')}}" alt="" height="150" width="250" /></a>
+                        <a href="{{route('index')}}"><img src="{{URL::to('assets/img/logos/logo.png')}}" alt="" height="110" width="220" /></a>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
@@ -53,10 +53,10 @@
                                             </ul>
                                         </div>
                                     </div>
-                                        <div class="text-search">
-                                            <input type="search" name="query" placeholder="Search entire store here..." class="input-text">
-                                            <button class="button" title="Search" type="submit"><span><span>Search</span></span></button>
-                                        </div>
+                                    <div class="text-search">
+                                        <input type="search" name="query" placeholder="Search entire store here..." class="input-text">
+                                        <button class="button" title="Search" type="submit"><span><span>Search</span></span></button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -83,7 +83,7 @@
                                         </div>
                                         <a title="Remove this item" class="remove" href="{{route('cart.delete', $cart->rowId)}}"><i class="fa fa-trash-o"></i></a>
                                     </div>
-                                        @endforeach
+                                    @endforeach
 
                                 </div>
                                 <div class="minicart_total_checkout">

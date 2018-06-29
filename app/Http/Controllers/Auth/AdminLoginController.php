@@ -33,7 +33,11 @@ class AdminLoginController extends Controller
      */
     public function login()
     {
-        return view('auth.admin-login');
+        if (Auth::check()) {
+            return redirect('dashboard');
+        }else{
+            return view('auth.admin-login');
+        }
     }
 
 

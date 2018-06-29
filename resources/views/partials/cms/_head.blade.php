@@ -6,12 +6,13 @@
     <title>Dollar Pharmacy | CMS</title>
 
     <!-- Favicon -->
-    <link href="{{URL::to('cms_assets/img/favicon.ico')}}" rel="apple-touch-icon" type="image/png" sizes="144x144">
+    <!-- <link href="{{URL::to('cms_assets/img/favicon.ico')}}" rel="apple-touch-icon" type="image/png" sizes="144x144">
     <link href="{{URL::to('cms_assets/img/favicon.ico')}}" rel="apple-touch-icon" type="image/png" sizes="114x114">
     <link href="{{URL::to('cms_assets/img/favicon.ico')}}" rel="apple-touch-icon" type="image/png" sizes="72x72">
     <link href="{{URL::to('cms_assets/img/favicon.ico')}}" rel="apple-touch-icon" type="image/png">
     <link href="{{URL::to('cms_assets/img/favicon.ico')}}" rel="icon" type="image/png">
-    <link href="{{URL::to('cms_assets/img/favicon.ico')}}" rel="shortcut icon">
+    <link href="{{URL::to('cms_assets/img/favicon.ico')}}" rel="shortcut icon"> -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon-32x32.png">
     <!-- /Favicon -->
 
     <!-- Global stylesheets -->
