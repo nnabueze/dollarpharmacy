@@ -7,6 +7,7 @@ use App\Prescription;
 use App\Product;
 use App\SubCategory;
 use App\User;
+use App\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
@@ -54,6 +55,7 @@ class ProductController extends Controller
             'category' => 'required',
             'overview' => 'max:225',
             'image' => 'image',
+            'stock' => 'required|integer',
         ]);
 
         $product = new Product();
@@ -101,7 +103,11 @@ class ProductController extends Controller
             $product->small1 = 'products/smallest/default-smallest.jpg';
         }
 
+        $stock = new stock();
+        $stock->product_count = $request->stock;
+
         $product->save();
+        $product->stock()->save($stock);
 
         Session::flash('success', 'Product Added!');
 
@@ -129,7 +135,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('cms.edit_product', compact('product'));
+        $stock = Stock::where('product_id',$product->id)->first();
+        return view('cms.edit_product', compact('product','stock'));
     }
 
     /**
@@ -205,9 +212,17 @@ class ProductController extends Controller
             $product->small1 = $location3;
 
         }
-
-
+        $stock = Stock::where('product_id',$product->id)->first();
         $product->save();
+        if ($stock == null) {
+            $stock = new Stock();
+            $stock->product_count = $request->stock;
+            $product->stock()->save($stock);
+        }else{
+            $stock->product_count = $request->stock;
+            $stock->save();
+        }
+        
 
 
         Session::flash('success', 'Product Updated!');
@@ -274,4 +289,6 @@ class ProductController extends Controller
 
         return view('cms.prescriptions', compact('prescriptions'));
     }
+
+
 }

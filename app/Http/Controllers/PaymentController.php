@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Stock;
 use App\WalletTransaction;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -156,6 +157,14 @@ class PaymentController extends Controller
 
         $user->orders()->save($order);
 
+        foreach (Cart::content() as $value) {
+            $stock = Stock::where('product_id',$value->id)->first();
+            if ($stock != null) {
+                $stock->product_count -= Cart::content()->qty;
+                $stock->save();
+            }
+        }
+
         return redirect()->route('dashboard');
 
     }
@@ -192,6 +201,15 @@ class PaymentController extends Controller
         $order->cart = serialize(Cart::content());
 
         $user->orders()->save($order);
+
+        foreach (Cart::content() as $value) {
+            $stock = Stock::where('product_id',$value->id)->first();
+            if ($stock != null) {
+                $stock->product_count -= Cart::content()->qty;
+                $stock->save();
+            }
+        }
+
         Session::flash('success', 'Order Successfully placed!');
 
         return redirect()->route('dashboard');
@@ -225,6 +243,14 @@ class PaymentController extends Controller
 
         $user->orders()->save($order);
 
+        foreach (Cart::content() as $value) {
+            $stock = Stock::where('product_id',$value->id)->first();
+            if ($stock != null) {
+                $stock->product_count -= Cart::content()->qty;
+                $stock->save();
+            }
+        }
+
         /*
          * Add the order id and transaction type to the information going to paystack.
          * This will enable us know the product that was payed for when the payment calls back.
@@ -252,6 +278,14 @@ class PaymentController extends Controller
             $order->status = 'paid';
 
             $order->save();
+
+            foreach (Cart::content() as $value) {
+                $stock = Stock::where('product_id',$value->id)->first();
+                if ($stock != null) {
+                    $stock->product_count -= Cart::content()->qty;
+                    $stock->save();
+                }
+            }
 
             Session::flash('success', 'Transaction Successful. Your Reference ID is: ' . request()->trxref);
 

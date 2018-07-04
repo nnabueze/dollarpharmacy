@@ -20,4 +20,13 @@ class Product extends Model
     {
         return $this->belongsTo('App\SubCategory', 'sub_category_id');
     }
+
+    public function stock() {
+        return  $this->hasOne('App\Stock');
+    }
+
+      public function reviews()
+      {
+        return $this->hasMany('App\Review');
+      }
 }

@@ -19,6 +19,9 @@ Route::get('oldlogin', function () {
 
 Route::get("/dashboard/orders",'DashboardController@order');
 
+///rating route
+Route::post('reveiw/{id}', 'HomeController@storeReviewForProduct');
+
 Route::get('logout', 'HomeController@logout');
 
 Route::get('about', 'HomeController@about')->name('about');
@@ -101,3 +104,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::post('/login', 'Auth\AdminLoginController@loginAdmin')->name('admin.login.submit');
 });
+
+

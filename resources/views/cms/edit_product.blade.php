@@ -86,6 +86,19 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label class="control-label col-lg-3">Product Stock</label>
+                                @if($stock != null)
+                                <div class="col-lg-4">
+                                    <input type="number" name="stock" class="form-control" value="{{$stock->product_count}}">
+                                </div>
+                                @else
+                                <div class="col-lg-4">
+                                    <input type="number" name="stock" class="form-control" value="">
+                                </div>
+                                @endif
+                            </div>
+
 
                             <div class="form-group row pb-10">
                                 <label class="control-label col-lg-3">Product Overview</label>

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Stock;
+use App\Review;
+use Redirect;
 use App\Category;
 use App\Product;
 use App\SubCategory;
@@ -53,9 +56,13 @@ class HomeController extends Controller
 
         $category = $product->categories()->first();
 
+        $reviews = Review::where('product_id',$product->id)->get();
+
+        $stock = stock::where('product_id',$slug)->first();
+
         $related_products = $category->products()->get();
 
-        return view('single_product')->with(['product' => $product, 'related_products' => $related_products]);
+        return view('single_product')->with(['product' => $product, 'related_products' => $related_products,'stock'=>$stock, 'reviews'=>$reviews]);
 
     }
 
@@ -104,6 +111,33 @@ class HomeController extends Controller
     public function logout(Request $request) {
       Auth::logout();
       return redirect('/');
+    }
+
+    public function storeReviewForProduct(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'comment' => 'required',
+        ]);
+
+        $product = Product::find($id);
+
+        // this will be added when we add user's login functionality
+        //$this->user_id = Auth::user()->id;
+
+        $product_reviews = new Review();
+        $product_reviews->comment = $request->comment; 
+        $product_reviews->rating = $request->rating; 
+        $product->reviews()->save($product_reviews);
+
+        // recalculate ratings for the specified product
+        $reviews = Review::where('product_id',$id)->get();
+
+        $avgRating = $reviews->avg('rating');
+        $product->rating_cache = round($avgRating,1);
+        $product->rating_count = $reviews->count();
+        $product->save();
+
+        return Redirect::to('product/'.$product->slug.'#reviews-anchor');
     }
 
 

@@ -42,4 +42,7 @@ Route::group(['middleware' => ['api']], function () {
 });
 
 Route::post("product/order","API\ProductController@order");
+Route::get("product/order/{id}","API\ProductController@getOrder");
+
+Route::get("user/{id}","API\ApiUserController@getUser");
 

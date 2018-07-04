@@ -145,4 +145,22 @@ class ProductController extends Controller
                         'message'=>"Sucessful"
                     ], 200)->header('Content-Type', 'application/json'); 
     }
+
+    public function getOrder($id)
+    {
+        $order = Order::where('reference',$id)->first();
+
+
+        if ($order == null) {
+            return response([
+                'error'=>"Invalid order ID",
+            ], 400)->header('Content-Type', 'application/json');
+        }else{
+            
+        $order->cart = unserialize($order->cart);
+            return response([ 'order' => $order,
+                        'message'=>"Sucessful"
+                    ], 200)->header('Content-Type', 'application/json'); 
+        }
+    }
 }

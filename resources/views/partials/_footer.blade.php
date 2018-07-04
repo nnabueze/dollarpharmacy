@@ -1,4 +1,5 @@
 <!-- footer area start -->
+@yield('script')
 <div class="h2-footer-area">
     <div class="container">
         <div class="row">
